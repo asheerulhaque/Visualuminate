@@ -1,0 +1,27 @@
+.logo{
+    height: 30%;
+    max-width: 70%;
+    margin-top: -10%;
+    margin-left: 12%;
+}
+
+.sidebar{
+    background-color: #121619;
+    color: rgb(244, 250, 255);
+}
+
+.last-item{
+   padding-top: 85% !important;
+}
+
+.icon{
+    color: aliceblue;
+
+}
+
+.menu-items{
+    padding-left: 10% !important;
+}
+.menu-icon{
+    color: #121619;
+}

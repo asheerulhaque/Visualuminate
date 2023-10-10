@@ -64,11 +64,7 @@ const Sector = () => {
     },
     xaxis: {
         categories: [], // Will be populated with sector names
-        labels: {
-            style: {
-                colors: 'white', // Set X-axis text color to white
-            },
-        },
+        
     },
     plotOptions: {
         bar: {
@@ -83,15 +79,9 @@ const Sector = () => {
     yaxis: {
         title: {
             text: 'Values',
-            style: {
-                color: 'white', // Set Y-axis title text color to white
-            },
+            
         },
-        labels: {
-            style: {
-                colors: 'white', // Set Y-axis values text color to white
-            },
-        },
+        
     },
     fill: {
         opacity: 1,
@@ -107,9 +97,7 @@ const Sector = () => {
         position: 'top',
         horizontalAlign: 'center',
         offsetX: 0,
-        labels: {
-            colors: 'white', // Set legend text color to white
-        },
+       
     },
 });
 
@@ -150,11 +138,11 @@ const Sector = () => {
     return (
     <div>
        <div style={{ display: 'flex', alignItems: 'center', justifyContent:'space-between' }}>
-        <h1 style={{ color: 'white', marginLeft: '20px' ,fontSize:'30px'}}>Sector Reports</h1>
+        <h1 style={{  marginLeft: '20px' ,fontSize:'30px'}}>Sector Reports</h1>
 
         <div style={{ marginLeft: '20px' ,marginTop:'10px',marginRight:'20px'}}>
             <FormControl sx={{ minWidth: 220 }} size="small">
-            <InputLabel id="demo-select-small-label" style={{ color: 'white'}}>
+            <InputLabel id="demo-select-small-label" >
                 Change Region
             </InputLabel>
             <Select
@@ -163,10 +151,10 @@ const Sector = () => {
                 value={currReg}
                 label="Change Region"
                 onChange={handleRegionChange}
-                style={{ color: 'white' }}
+               
             >
                 {regions.map((region) => (
-                <MenuItem style={{ color: 'white' }} key={region} value={region}>
+                <MenuItem  key={region} value={region}>
                     {region}
                 </MenuItem>
                 ))}
