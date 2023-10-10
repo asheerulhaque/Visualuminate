@@ -1,5 +1,5 @@
 import React from 'react';
-import Sector from './DataAnalytics/Sector'; // Update the path to the Sector component based on your folder structure
+import Sector from '../DataAnalytics/SectorData/Sector'; // Update the path to the Sector component based on your folder structure
 import './Dashboard.css'; // Import your CSS file for styling
 
 
