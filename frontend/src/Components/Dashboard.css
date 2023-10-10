@@ -1,0 +1,8 @@
+.sector-component{
+    border: 1px solid rgba(255, 255, 255, 0.247);
+   width: 720px;
+   border-radius: 10px;
+   margin-left: 10px;
+   margin-top: 10px;
+   padding-left: 20px;
+}
