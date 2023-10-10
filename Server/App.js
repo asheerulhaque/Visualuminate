@@ -157,6 +157,25 @@ client.connect()
         });
 
 
+        // Define a route to fetch PESTLE category data
+        app.get('/api/pestle', async (req, res) => {
+            try {
+                // Query MongoDB to count insights by PESTLE category
+                const pestleData = await collection.aggregate([
+                    {
+                        $group: {
+                            _id: '$pestle',
+                            count: { $sum: 1 },
+                        },
+                    },
+                ]).toArray();
+
+                res.json(pestleData);
+            } catch (err) {
+                res.status(500).json({ error: err.message });
+            }
+        });
+
         // Start the Express server
         app.listen(port, () => {
             console.log(`Server is running on port ${port}`);
