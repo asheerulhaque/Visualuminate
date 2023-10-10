@@ -1,0 +1,144 @@
+/* Navbar container styles */
+/* Navbar container styles with gradient background */
+.navbar {
+  background: linear-gradient(to right, #011559, #0941a3); /* Gradient background */
+  color: #f7efefe3; /* Text color */
+  display: flex;
+  align-items: center;
+  margin:10px;
+  border-radius: 10px;
+  padding: 10px 20px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); 
+  border: 1px solid rgba(209, 209, 209, 0.836);/* Optional shadow effect */
+}
+
+.css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper{
+  background-color: #0941a3 !important;
+}
+/* Logo styles */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  max-width: 15%;
+  max-height: 10px;
+}
+.logo{
+  width: 100%;
+  height: 100%;
+}
+
+
+/* Navigation items styles */
+.navbar-nav {
+  list-style: none;
+  display: flex;
+}
+
+#dashboard{
+  background: linear-gradient(to right, #4f6ccc, #0941a3); /* Replace 'your-color' with the desired background color */
+}
+.nav-link {
+  background-color: transparent;
+  text-decoration: none;
+  border-radius: 10px;
+  color: #ffffff; /* Default color */
+  transition: background-color 0.3s ease, opacity 0.3s ease; /* Add smooth transitions */
+  padding: 10px; 
+  margin-right: 8px;/* Add padding to create spacing */
+}
+
+.nav-link:hover {
+  background-color: rgba(96, 118, 216, 0.397);
+   /* Transparent background color on hover */
+  color: #ffffff;
+  opacity: 1; /* Full opacity on hover */
+}
+
+
+/* Icon styles for navigation items */
+.nav-icon {
+  margin-right: 5px; /* Add margin between the navigation text and icon */
+  font-size: 18px; /* Adjust the icon size */
+}
+
+
+/* Remove default input styles */
+.search {
+  border: none;
+  outline: none;
+  background: transparent; /* Add padding for spacing */
+  border-radius: 10px; /* Add border-radius for rounded corners */
+  color: #ffffff; /* Text color */
+  font-size: 18px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; /* Adjust font size as needed */
+}
+
+#search-bar {
+  text-decoration: none;
+  border-radius: 10px;
+  color: #ffffff; /* Default color */
+  transition: background-color 0.3s ease, opacity 0.3s ease; /* Add smooth transitions */
+  padding: 12px;
+  background: #ffffff4d;
+}
+
+#search-bar:hover {
+  color: #ffffff;
+  background: #ffffff93;
+  opacity: 1;
+}
+
+#search-item{
+  margin-left: 390px;
+}
+.avatar{
+  padding: 0;
+  margin: 0;
+  border-radius: 50%;
+  margin-left: 20px;
+  border: 2px solid rgba(255, 255, 255, 0);
+  transition: transform 0.3s ease;
+}
+
+.avatar:hover{
+  cursor: pointer;
+  border: 2px solid rgb(255, 255, 255);
+  transform: scale(1.1);
+}
+
+/* Style the placeholder text */
+.search::placeholder {
+  color: #ffffff; /* Placeholder text color */
+}
+
+.avatar {
+  position: relative;
+}
+
+.css-1jxgrnq-MuiBadge-badge{
+  background-color: rgb(21, 221, 21) !important;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 60px; /* Adjust the top distance as needed */
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.dropdown-menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.dropdown-menu li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-menu li:hover {
+  background-color: #f0f0f0;
+}
