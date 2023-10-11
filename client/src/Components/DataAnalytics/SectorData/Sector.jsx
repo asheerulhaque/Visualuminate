@@ -15,7 +15,7 @@ const Sector = () => {
  
   useEffect(() => {
     // Fetch regions from the API
-    fetch('http://localhost:5000/api/regions')
+    fetch('/api/regions')
       .then((response) => response.json())
       .then((data) => {
         // Remove duplicates and empty values
@@ -36,7 +36,7 @@ const Sector = () => {
   useEffect(() => {
     // Fetch sector data when currReg changes
     if (currReg) {
-      fetch(`http://localhost:5000/api/sector-data-by-region/${currReg}`)
+      fetch(`/api/sector-data-by-region/${currReg}`)
         .then((response) => response.json())
         .then((data) => {
           // Remove the empty sector from the data object

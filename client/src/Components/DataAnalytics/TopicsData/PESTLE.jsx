@@ -7,7 +7,7 @@ const PESTLE = () => {
 
   useEffect(() => {
     // Fetch data from your API
-    fetch('http://localhost:5000/api/pestle')
+    fetch('/api/pestle')
       .then((response) => response.json())
       .then((data) => setPestleData(data))
       .catch((error) => console.error('Error fetching data:', error));
