@@ -97,7 +97,9 @@ const Sector = () => {
         position: 'top',
         horizontalAlign: 'center',
         offsetX: 0,
-       
+        markers: {
+          fillColors: ['#09814a','#bcb382', '#e5c687'],
+      },
     },
 });
 
@@ -109,9 +111,9 @@ const Sector = () => {
         // Map the provided sector data to the chart series format with custom colors
         const sectorNames = Object.keys(sectorData);
         const paramColors = {
-            Intensity: '#008FFB',   // Blue color for Intensity
-            Relevance: '#00E396',  // Green color for Relevance
-            Likelihood: '#FEB019', // Orange color for Likelihood
+            Intensity: '#09814a',   // Blue color for Intensity
+            Relevance: '#bcb382',  // Green color for Relevance
+            Likelihood: '#e5c687', // Orange color for Likelihood
         };
 
         const chartData = ['Intensity', 'Relevance', 'Likelihood'].map((param) => ({
