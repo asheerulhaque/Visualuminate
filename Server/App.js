@@ -1,4 +1,3 @@
-// backend/app.js
 const express = require('express');
 const MongoClient = require('mongodb').MongoClient;
 const cors = require('cors');
