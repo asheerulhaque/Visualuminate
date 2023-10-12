@@ -175,6 +175,29 @@ client.connect()
             }
         });
 
+        //Api route for country data
+        app.get('/api/country', async (req, res) => {
+            try {
+                // Query MongoDB to count insights by country
+                const countryData = await collection.aggregate([
+                    {
+                        $group: {
+                            _id: '$country',
+                            count: { $sum: 1 },
+                        },
+                    },
+                ]).toArray();
+
+                res.json(countryData);
+            } catch (err) {
+                res.status(500).json({ error: err.message });
+            }
+        });
+
+        
+
+       
+
         // Start the Express server
         app.listen(port, () => {
             console.log(`Server is running on port ${port}`);

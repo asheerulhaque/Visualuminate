@@ -20,12 +20,16 @@
     "axios": "^1.5.1",
     "d3": "^7.8.5",
     "d3-geo": "^3.1.0",
+    "flag-icons": "^6.11.1",
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.1",
     "react-avatar": "^5.0.3",
     "react-dom": "^18.2.0",
+    "react-flag-kit": "^1.1.1",
     "react-scripts": "5.0.1",
     "react-simple-maps": "^3.0.0",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1",
     "topojson": "^3.0.2",
     "web-vitals": "^2.1.4"
   },
@@ -53,5 +57,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "css-loader": "^6.8.1",
+    "sass-loader": "^13.3.2",
+    "style-loader": "^3.3.3"
   }
 }

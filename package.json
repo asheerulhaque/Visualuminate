@@ -6,5 +6,8 @@
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "server": "cd server && npm start",
     "client": "cd client && npm start"
+  },
+  "dependencies": {
+    "react-flags": "^0.1.18"
   }
 }
