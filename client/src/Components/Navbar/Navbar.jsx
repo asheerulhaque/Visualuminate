@@ -1,5 +1,5 @@
 import React from "react";
-import "./Navbar.css"; 
+import styles from "./Navbar.module.css"; 
 import Avatar from "react-avatar";
 import Menu from "@mui/material/Menu";
 import Notify from "../../assests/icons/Notification.png";
@@ -24,17 +24,17 @@ const Navbar = () => {
     setAnchorEl(null);
   };
   return (
-    <nav className="navbar">
+    <nav className={styles.navbar}>
       <div style={{ display: "flex", alignItems: "center" }}>
         <div>
           <Sidebar />
         </div>
-        <span className="nav-link">Dashboard</span>
+        <span className={styles.navLink}>Dashboard</span>
       </div>
 
       <div style={{ display: "flex", alignItems: "center" }}>
-        <div class="container-input">
-          <input type="text" placeholder="Search" name="text" class="input" />
+        <div className={styles.containerInput}>
+          <input type="text" placeholder="Search" name="text" className={styles.input} />
           <svg
             fill="#000000"
             width="20px"
@@ -48,7 +48,7 @@ const Navbar = () => {
             ></path>
           </svg>
         </div>
-        <div className="avatar">
+        <div className={styles.avatar}>
           <Badge
             color="success"
             anchorOrigin={{
@@ -79,11 +79,11 @@ const Navbar = () => {
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
         style={{ marginTop: "10px", borderRadius: "10px" }}
       >
-        <MenuItem onClick={handleClose} className="Menu-items">
+        <MenuItem onClick={handleClose} className={styles.MenuItems}>
 
-          <div className="Profile">
+          <div className={styles.Profile}>
             <Badge
-              color="success"
+              style={{color:'red!important'}}
               anchorOrigin={{
                 vertical: "bottom",
                 horizontal: "right",
@@ -101,13 +101,13 @@ const Navbar = () => {
             </Badge>
            
               <div
-                class="v-list-item-title font-weight-medium"
+                
                 style={{  fontSize: "17px", fontWeight:"bold" , fontFamily:"sans-serif"}}
               >
                 Asheerul Haque
               </div>
               <div
-                class="v-list-item-subtitle"
+               
                 style={{ fontSize: "15px"}}
               >
                 admin
@@ -115,38 +115,38 @@ const Navbar = () => {
           </div>
         </MenuItem>
 
-        <MenuItem onClick={handleClose} className="Menu-items">
+        <MenuItem onClick={handleClose} className={styles.MenuItems}>
           <ListItemIcon >
             <img src={Person} alt="Person" width={30} height={30}/>
           </ListItemIcon>
           Profile
         </MenuItem>
-        <MenuItem onClick={handleClose} className="Menu-items">
+        <MenuItem onClick={handleClose} className={styles.MenuItems}>
           <ListItemIcon >
             <img src={Notify} alt="Notification" width={26} height={26}/>
           </ListItemIcon>
           Notification
         </MenuItem>
-        <MenuItem onClick={handleClose} className="Menu-items">
+        <MenuItem onClick={handleClose} className={styles.MenuItems}>
           <ListItemIcon >
             <img src={Settings} alt="Setting" width={26} height={26}/>
           </ListItemIcon>
           Settings
         </MenuItem>
-        <MenuItem onClick={handleClose} className="Menu-items">
+        <MenuItem onClick={handleClose} className={styles.MenuItems}>
           <ListItemIcon >
             <img src={Billing} alt="Billing" width={26} height={26}/>
           </ListItemIcon>
           Billing
         </MenuItem>
         <Divider />
-        <MenuItem onClick={handleClose} className="Menu-items">
+        <MenuItem onClick={handleClose} className={styles.MenuItems}>
           <ListItemIcon >
              <img src={Help} alt="Help" width={26} height={26}/>
           </ListItemIcon>
           Help
         </MenuItem>
-        <MenuItem onClick={handleClose} className="Menu-items">
+        <MenuItem onClick={handleClose} className={styles.MenuItems}>
           <ListItemIcon >
             <img src={Logout} alt="Logout" width={25} height={25}/>
           </ListItemIcon>
@@ -154,7 +154,7 @@ const Navbar = () => {
         </MenuItem>
          <Divider />
          <div
-                class="v-list-item-subtitle"
+               
                 style={{display:'flex', alignItems:'center',justifyContent:'space-evenly', fontSize: "15px", padding:'10px'}}
               >
                 <span>Privacy Policy</span>&#8226;

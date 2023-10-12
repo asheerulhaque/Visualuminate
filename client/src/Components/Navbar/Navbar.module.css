@@ -1,0 +1,82 @@
+
+.navbar {
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+.navLink {
+  font-size: 30px;
+  font-weight: bolder;
+  color: #121619;
+}
+
+.avatar{
+  padding: 0;
+  margin: 0;
+  border-radius: 50%;
+  margin-left: 20px;
+  border: none;
+  transition: transform 0.3s ease;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); 
+}
+
+.avatar:hover{
+  cursor: pointer;
+  transform: scale(1.09);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.582); 
+}
+
+
+.avatar {
+  position: relative;
+}
+
+
+
+.Profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  padding-left: 40px;
+   padding-right: 40px;
+   border: 1px solid rgba(0, 0, 0, 0.089);
+   border-radius: 20px;
+}
+
+.containerInput {
+  position: relative;
+}
+
+.input {
+  width: 160px;
+  padding: 15px 10px 15px 40px;
+  border-radius: 9999px;
+  border: none;
+  transition: all .2s ease-in-out;
+  outline: none;
+  opacity: 0.8;
+  background-color: #f3efef;
+}
+
+.containerInput svg {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translate(0, -50%);
+}
+
+.input:focus {
+  opacity: 1;
+  width: 200px;
+}
+
+.MenuItems{
+  margin: 10px!important;
+}
+
+

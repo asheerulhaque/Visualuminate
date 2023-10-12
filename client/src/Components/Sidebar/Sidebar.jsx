@@ -12,7 +12,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SettingsIcon from '@mui/icons-material/Settings';
 import Logo from '../../assests/logo/logo.png';
 import MenuIcon from '@mui/icons-material/Menu'; // Import Menu icon
-import './Sidebar.css'; // Import your CSS file for styling
+import styles from  './Sidebar.module.css'; // Import your CSS file for styling
 import ExitToAppIcon from '@mui/icons-material/ExitToApp'; // Import Logout icon
 
 function SwipeableTemporaryDrawer() {
@@ -34,7 +34,7 @@ function SwipeableTemporaryDrawer() {
 
   const list = (anchor) => (
     <Box
-  className='sidebar'
+  className={styles.sidebar}
   height="100vh"
   sx={{ width: 280}}
   role="presentation"
@@ -42,37 +42,37 @@ function SwipeableTemporaryDrawer() {
   onKeyDown={toggleDrawer(anchor, false)}
 >
   {/* Add logo image here */}
-  <img src={Logo} alt='logo' className='logo'/>
+  <img src={Logo} alt='logo' className={styles.logo}/>
  
-   <List className='menu-items'>
-    <ListItemButton className='menu-list'>
+   <List className={styles.menuItems}>
+    <ListItemButton className={styles.menuList}>
       <ListItemIcon>
-        <DashboardIcon className="icon"/>
+        <DashboardIcon className={styles.icon}/>
       </ListItemIcon>
       <ListItemText primary="Dashboard" />
     </ListItemButton>
-    <ListItemButton className='menu-list'>
+    <ListItemButton className={styles.menuList}>
       <ListItemIcon>
-        <BarChartIcon className="icon"/>
+        <BarChartIcon className={styles.icon}/>
       </ListItemIcon>
       <ListItemText primary="Analytics" />
     </ListItemButton>
-    <ListItemButton className='menu-list'>
+    <ListItemButton className={styles.menuList}>
       <ListItemIcon>
-        <AccountCircleIcon className="icon"/>
+        <AccountCircleIcon className={styles.icon}/>
       </ListItemIcon>
       <ListItemText primary="Profile" />
     </ListItemButton>
-    <ListItemButton className='menu-list'>
+    <ListItemButton className={styles.menuList}>
       <ListItemIcon>
-        <SettingsIcon className="icon"/>
+        <SettingsIcon className={styles.icon}/>
       </ListItemIcon>
       <ListItemText primary="Settings" />
     </ListItemButton>
 
-      <ListItemButton className='last-item'>
+      <ListItemButton className={styles.lastItem}>
         <ListItemIcon>
-          <ExitToAppIcon className="icon" style={{color:'#E34040'}} /> {/* You will need to import the ExitToAppIcon component */}
+          <ExitToAppIcon className={styles.icon} style={{color:'#E34040'}} /> {/* You will need to import the ExitToAppIcon component */}
         </ListItemIcon>
         <ListItemText primary="Logout" />
       </ListItemButton>
@@ -85,7 +85,7 @@ function SwipeableTemporaryDrawer() {
     <div>
       <React.Fragment>
         <Button onClick={toggleDrawer('left', true)}>
-          <MenuIcon className="menu-icon"/> 
+          <MenuIcon className={styles.menuIcon}/> 
         </Button>
         <SwipeableDrawer
           

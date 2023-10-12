@@ -1,0 +1,48 @@
+
+.flag{
+    width: 30px;
+    margin-right: 15px;
+}
+
+.countryBox{
+    width: 300px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(68, 66, 66, 0.2);
+    padding: 20px;
+     margin: 20px;
+    background-color:#f7e99a;
+    color: rgb(31, 32, 32);
+}
+
+.countryItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px; 
+  padding: 5px;
+}
+
+.countryInfo {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.countrytitle{
+   margin: 0;
+    padding: 0;
+}
+.count{
+    font-weight: bold;
+    font-size: 15px;
+    color:rgb(6, 32, 6);
+}
+
+.name{
+    font-weight: 500;
+}
+
+.countryHeading{
+    margin: 10px;
+    margin-top: 0;
+}

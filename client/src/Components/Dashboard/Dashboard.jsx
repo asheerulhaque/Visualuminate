@@ -1,18 +1,34 @@
 import React from 'react';
-import Sector from '../DataAnalytics/SectorData/Sector'; // Update the path to the Sector component based on your folder structure
-import './Dashboard.css'; // Import your CSS file for styling
-import PESTLE from '../DataAnalytics/TopicsData/PESTLE'; // Update the path to the TopicsData component based on your folder structure
+import styles from './Dashboard.module.css';
+import Sector from '../DataAnalytics/SectorData/Sector'; 
+import PESTLE from '../DataAnalytics/PestleData/PESTLE';
+import Country from '../DataAnalytics/CountryData/country';
+import Topic from '../DataAnalytics/TopicsData/topic';
+import Relevance from '../DataAnalytics/RelevanceData/relevance';
 
 const Dashboard = () => {
   return (
-    <div className="dashboard-box">
-      <div className="topics-component">
-        <PESTLE />
+    <div className={styles.dashboardBox}>
+     
+        <div className={styles.relevanceComponent}>
+          <Relevance />
         </div>
-      <div className="sector-component">
-        <Sector />
+      <div className={styles.dashboardFirstItem}>
+        <div className={styles.topicsComponent}>
+          <PESTLE />
+          </div>
+          <div className={styles.topicsComponent}>
+          <Topic />
+          </div>
       </div>
-      
+      <div className={styles.dashboardSecondItem}>
+        <div className={styles.sectorComponent}>
+          <Sector />
+        </div>
+        <div className={styles.countryComponent}>
+          <Country />
+          </div>
+      </div>
     </div>
   );
 };
