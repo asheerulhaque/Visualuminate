@@ -42,6 +42,7 @@ client.connect()
             }
         });
 
+
 // GET request to retrieve sector data
         app.get('/api/sector-data', async (req,res) => {
             try{
@@ -195,7 +196,26 @@ client.connect()
         });
 
         
+        //Api to get source field data
+        app.get('/api/source', async (req, res) => {
+            try {
+                // Query MongoDB to count insights by source
+                const sourceData = await collection.aggregate([
+                    {
+                        $group: {
+                            _id: '$source',
+                            count: { $sum: 1 },
+                        },
+                    },
+                ]).toArray();
 
+                res.json(sourceData);
+                
+            } catch (err) {
+                res.status(500).json({ error: err.message });
+            }
+        });
+        
        
 
         // Start the Express server

@@ -1,4 +1,4 @@
-// src/components/Topic.js
+
 import React, { useEffect, useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import styles from './topic.module.css';
@@ -42,9 +42,7 @@ function Topic() {
 
   const chartOptions = {
     labels: data.map((item) => item.topic),
-    theme: {
-      palette: 'palette1', // Use the default palette
-    },
+    
     colors: colors,
   };
 
