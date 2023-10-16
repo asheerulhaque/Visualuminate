@@ -33,11 +33,10 @@ Data visualization is an essential part of data analysis, and this project aims 
 
 ## Preview
 
-![Image 1](./Screenshot 2023-10-16 163247.png)
-![Image 2](./image2.png)
-![Image 3](./image3.png)
-![Image 4](./image4.png)
-
+![Image 1](./images/1.png)
+![Image 2](./images/2.png)
+![Image 3](./images/3.png)
+![Image 4](./images/4.png)
 
 
 
