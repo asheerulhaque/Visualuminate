@@ -4,6 +4,7 @@
   margin-left: 0;
   padding: 10px;
   padding-left: 0;
+  margin-bottom: 0;
   /* background-color: #2d4739; */
   color: #e6e6e6;
   border-radius: 20px;
@@ -74,7 +75,7 @@ p{
   margin: 20px;
   overflow: hidden;
   max-width: 420px;
-  height: 355px;
+  height: 335px;
   border-radius: 20px;
   position: relative;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.342);

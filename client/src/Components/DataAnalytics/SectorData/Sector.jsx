@@ -167,7 +167,7 @@ const Sector = () => {
 
       {chartSeries.length > 0 && (
         <div>
-          <Chart options={chartOptions} series={chartSeries} type="bar" height={400} width={700} />
+          <Chart options={chartOptions} series={chartSeries} type="bar" height={430} width={900} />
         </div>
       )}
     </div>
