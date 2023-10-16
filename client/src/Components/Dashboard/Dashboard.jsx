@@ -9,7 +9,7 @@ import Source from '../DataAnalytics/SourceData/source';
 const Dashboard = () => {
   return (
     <div className={styles.dashboardBox}>
-     <TimeSeries />
+     
        
       <div className={styles.dashboardFirstItem}>
         <div className={styles.topicsComponent}>
