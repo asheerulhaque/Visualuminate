@@ -14,7 +14,7 @@ const Sector = () => {
  
   useEffect(() => {
     // Fetch regions from the API
-    fetch('/api/regions')
+    fetch('https://visualuminate.vercel.app/api/regions')
       .then((response) => response.json())
       .then((data) => {
         // Remove duplicates and empty values
@@ -35,7 +35,7 @@ const Sector = () => {
   useEffect(() => {
     // Fetch sector data when currReg changes
     if (currReg) {
-      fetch(`/api/sector-data-by-region/${currReg}`)
+      fetch(`https://visualuminate.vercel.app/api/sector-data-by-region/${currReg}`)
         .then((response) => response.json())
         .then((data) => {
           // Remove the empty sector from the data object
