@@ -9,7 +9,7 @@ const collectionName = "visualdata";
 
 
 const corsOptions = {
-    origin: 'https://visualuminate-dashboard.vercel.app/', // Specify the allowed origin
+    origin: 'https://visualuminate-dashboard.vercel.app', // Specify the allowed origin
     methods: ["GET","POST"],
     credentials: true, // This is required for cookies and other credentials to be sent with the request
 };
