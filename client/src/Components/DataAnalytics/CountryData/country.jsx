@@ -30,7 +30,7 @@ const CountryData = () => {
 
   useEffect(() => {
     // Fetch data from the '/api/country' endpoint
-    fetch('/api/country')
+    fetch('https://visualuminate.vercel.app/api/country')
       .then((response) => response.json())
       .then((data) => {
         // Filter out entries without an _id and remove empty entries

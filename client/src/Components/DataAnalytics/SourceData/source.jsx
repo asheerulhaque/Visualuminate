@@ -55,7 +55,7 @@ function Source() {
 
 
     useEffect(() => {
-        fetch('/api/source')
+        fetch('https://visualuminate.vercel.app/api/source')
             .then((response) => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');

@@ -8,7 +8,7 @@ function Topic() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch('/api/topic-data')
+    fetch('https://visualuminate.vercel.app/api/topic-data')
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
