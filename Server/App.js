@@ -31,7 +31,7 @@ client.connect()
         
 
 // GET request to retrieve all data
-        app.get('/all-data', async (req, res) => {
+        app.get('/api/all-data', async (req, res) => {
             try {
                 // Retrieve data from MongoDB
                 const data = await collection.find({}).toArray();
@@ -50,7 +50,7 @@ client.connect()
 
 
 // GET request to retrieve sector data
-        app.get('/sector-data', async (req,res) => {
+        app.get('/api/sector-data', async (req,res) => {
             try{
                 const data = await collection.find({}).project({ _id: 0, sector: 1 }).toArray();
                 console.log('Data retrieved from MongoDB:', data.length);
@@ -74,7 +74,7 @@ client.connect()
 
 
 // GET request to retrieve region data
-        app.get('/regions', async (req, res) => {
+        app.get('/api/regions', async (req, res) => {
             try {
                 // Retrieve unique regions from MongoDB
                 const regions = await collection.distinct('region');
@@ -86,7 +86,7 @@ client.connect()
         });
 
 // GET request to retrieve sector data for each region
-        app.get('/data-by-region/:region', async (req, res) => {
+        app.get('/api/data-by-region/:region', async (req, res) => {
             try {
                 const { region } = req.params;
 
@@ -102,7 +102,7 @@ client.connect()
         });
         
 // GET request to retrieve |Intensity|Relevance|Likelihood| of each sector-data for each region        
-        app.get('/sector-data-by-region/:region', async (req, res) => {
+        app.get('/api/sector-data-by-region/:region', async (req, res) => {
             try {
                 const { region } = req.params;
 
@@ -133,7 +133,7 @@ client.connect()
         });
 
     // GET request to retrieve topic data
-        app.get('/topic-data', async (req, res) => {
+        app.get('/api/topic-data', async (req, res) => {
             try {
                 // Retrieve data from MongoDB
                 const data = await collection.find({}).toArray();
@@ -164,7 +164,7 @@ client.connect()
 
 
         // Define a route to fetch PESTLE category data
-        app.get('/pestle', async (req, res) => {
+        app.get('/api/pestle', async (req, res) => {
             try {
                 // Query MongoDB to count insights by PESTLE category
                 const pestleData = await collection.aggregate([
@@ -183,7 +183,7 @@ client.connect()
         });
 
         //Api route for country data
-        app.get('/country', async (req, res) => {
+        app.get('/api/country', async (req, res) => {
             try {
                 // Query MongoDB to count insights by country
                 const countryData = await collection.aggregate([
@@ -203,7 +203,7 @@ client.connect()
 
         
         //Api to get source field data
-        app.get('/source', async (req, res) => {
+        app.get('/api/source', async (req, res) => {
             try {
                 // Query MongoDB to count insights by source
                 const sourceData = await collection.aggregate([
@@ -222,7 +222,7 @@ client.connect()
             }
         });
         
-        
+       
 
         // Start the Express server
         app.listen(port, () => {
