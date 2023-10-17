@@ -3,7 +3,7 @@ const MongoClient = require('mongodb').MongoClient;
 const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 5000;
-const mongoURI = 'mongodb://localhost:27017/Visualluminate';
+const mongoURI = 'mongodb+srv://asheerulhaque:PZYfriR1poYiZ9JF@visualuminate-cloud-dat.fvgwlf5.mongodb.net/?retryWrites=true&w=majority';
 const dbName = 'Visualluminate'; // Name of the database
 const collectionName = 'visualdata'; // Name of the collection
 
