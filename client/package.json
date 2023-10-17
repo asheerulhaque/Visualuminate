@@ -42,7 +42,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "https://visualuminate.vercel.app/",
   "eslintConfig": {
     "extends": [
       "react-app",
