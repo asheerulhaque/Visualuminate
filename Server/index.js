@@ -35,7 +35,7 @@ client.connect()
 //==================================API ROUTES==============================================//
 //==========================================================================================//
         app.get('/', (req, res) => {
-            res.send('API is working properly');
+            res.json('API is working properly');
         });
 
 // GET request to retrieve all data
