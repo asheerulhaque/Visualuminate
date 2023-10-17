@@ -1,20 +1,26 @@
 const express = require('express');
-require('dotenv').config();
 const MongoClient = require('mongodb').MongoClient;
 const cors = require('cors');
 const app = express();
-const port = process.env.PORT || 5000;
-const mongoURI = process.env.MONGO_URI;
-const dbName = process.env.DB_NAME;
-const collectionName = process.env.COLLECTION_NAME;
+const port = 5000;
+const mongoURI = "mongodb+srv://asheerulhaque:PZYfriR1poYiZ9JF@visualuminate-cloud-dat.fvgwlf5.mongodb.net/?retryWrites=true&w=majority";
+const dbName = "Visualluminate";
+const collectionName = "visualdata";
 
 
+const corsOptions = {
+    origin: 'https://visualuminate-dashboard.vercel.app/', // Specify the allowed origin
+    methods: 'GET,POST',
+    credentials: true, // This is required for cookies and other credentials to be sent with the request
+};
+
+app.use(cors(corsOptions));
 
 
 // Create a MongoDB client
 const client = new MongoClient(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
 
-app.use(cors()); // Enable the express server to respond to requests
+
 
 // Connect to MongoDB
 client.connect()
