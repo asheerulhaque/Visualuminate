@@ -1,4 +1,5 @@
 const express = require('express');
+require('dotenv').config();
 const MongoClient = require('mongodb').MongoClient;
 const cors = require('cors');
 const app = express();
@@ -6,6 +7,8 @@ const port = process.env.PORT || 5000;
 const mongoURI = process.env.MONGO_URI;
 const dbName = process.env.DB_NAME;
 const collectionName = process.env.COLLECTION_NAME;
+
+
 
 
 // Create a MongoDB client
