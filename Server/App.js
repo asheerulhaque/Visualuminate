@@ -3,9 +3,10 @@ const MongoClient = require('mongodb').MongoClient;
 const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 5000;
-const mongoURI = 'mongodb+srv://asheerulhaque:PZYfriR1poYiZ9JF@visualuminate-cloud-dat.fvgwlf5.mongodb.net/?retryWrites=true&w=majority';
-const dbName = 'Visualluminate'; // Name of the database
-const collectionName = 'visualdata'; // Name of the collection
+const mongoURI = process.env.MONGO_URI;
+const dbName = process.env.DB_NAME;
+const collectionName = process.env.COLLECTION_NAME;
+
 
 // Create a MongoDB client
 const client = new MongoClient(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
