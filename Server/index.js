@@ -5,11 +5,9 @@ const app = express();
 const port = 5000;
 
 app.use(cors());
-
 // Import API routes and middleware
 const apiRoutes = require('./routes/api');
 const databaseMiddleware = require('./middleware/database');
-
 
 
 // Define the API routes
