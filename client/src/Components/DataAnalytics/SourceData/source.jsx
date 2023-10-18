@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
+import config from '../../../config';
 import styles from './source.module.css';
 
 
@@ -55,7 +56,7 @@ function Source() {
 
 
     useEffect(() => {
-        fetch('https://visualuminate.vercel.app/api/source')
+        fetch(`${config.API_URL}/api/source`)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');

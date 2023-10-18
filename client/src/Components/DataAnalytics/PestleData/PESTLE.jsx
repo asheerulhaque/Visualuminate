@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import config from '../../../config';
 import piechart from '../../../assests/img/piechart_3d.png';
 import barchart from '../../../assests/img/barchart_3d.png';
 import network from '../../../assests/img/network_3d.png';
@@ -17,8 +18,9 @@ const PESTLE = () => {
   }
 
   useEffect(() => {
+     
     // Fetch data from your API
-    fetch('https://visualuminate.vercel.app/api/pestle')
+    fetch(`${config.API_URL}/api/pestle`)
       .then((response) => response.json())
       .then((data) => setPestleData(data))
       .catch((error) => console.error('Error fetching data:', error));
