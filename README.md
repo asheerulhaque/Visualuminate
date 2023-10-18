@@ -8,7 +8,7 @@ This repository contains a dynamic data visualization dashboard built using the 
 - [Introduction](#introduction)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-- [License](#license)
+- [Preview](#Preview)
 
 ## Introduction
 
