@@ -2,12 +2,15 @@ import React, { useEffect, useState } from 'react';
 import config from '../../../config';
 import ReactApexChart from 'react-apexcharts';
 import styles from './topic.module.css';
-
+import Skeleton from '@mui/material/Skeleton';
+import Stack from '@mui/material/Stack';
 
 function Topic() {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     fetch(`${config.API_URL}/api/topic-data`)
       .then((response) => {
         if (!response.ok) {
@@ -32,6 +35,7 @@ function Topic() {
         ];
 
         setData(aggregatedData);
+       setLoading(false);
       })
       .catch((error) => {
         console.error('Error fetching data:', error);
@@ -50,13 +54,33 @@ function Topic() {
 
   return (
     <div className={styles.topicBox}>
-      <h2 className={styles.Heading}>Topic Distribution</h2>
-      <ReactApexChart
+      {loading ? (
+        <div style={{display:'flex', alignItems:'center', justifyContent:'space-between'}}>
+        <Stack spacing={1}>
+          <Skeleton variant='text' sx={{ fontSize: '3rem' }} width={250} />
+          <Skeleton variant="circular" height={220} width={220} />
+        </Stack>
+        <Stack spacing={1}>
+          <Skeleton variant="rounded" width={160} height={10} />
+           <Skeleton variant="rounded" width={160} height={10} />
+            <Skeleton variant="rounded" width={160} height={10} />
+             <Skeleton variant="rounded" width={160} height={10} />
+        </Stack>
+        </div>
+      ) : (
+        <>
+        <h2 className={styles.Heading}>Topic Distribution</h2>
+       <ReactApexChart
         options={chartOptions}
         series={chartSeries}
         type="pie"
         width={420}
       />
+      </>
+      )
+
+      }
+      
     </div>
   );
 }

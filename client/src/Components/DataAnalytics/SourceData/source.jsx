@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import config from '../../../config';
 import styles from './source.module.css';
-
+import Skeleton from '@mui/material/Skeleton';
+import Stack from '@mui/material/Stack';
 
 function Source() {
     const [source, setSource] = useState([]);
+    const [loading, setLoading] = useState(true);
     const series = source.map((item) => item.count);
 
     const options = {
@@ -56,6 +58,7 @@ function Source() {
 
 
     useEffect(() => {
+        setLoading(true);
         fetch(`${config.API_URL}/api/source`)
             .then((response) => {
                 if (!response.ok) {
@@ -72,6 +75,7 @@ function Source() {
 
                     const top5Data = sortedData.slice(0, 5); // Top 5 sources
                     setSource(top5Data); // Update the state with the top 5 sources
+                    setLoading(false);
                 }
             })
             .catch((error) => {
@@ -81,8 +85,31 @@ function Source() {
 
     return (
         <div id={styles.chart}>
-            <h1 className={styles.title}>Top Sources</h1>
-            <ReactApexChart options={options} series={series} type="radialBar" height={300} />
+        {loading ? (
+            <>
+             <Skeleton variant='text' sx={{ fontSize: '3rem' }} width={320} />
+            <div style={{display:'flex', alignItems:'center', justifyContent:'space-between',height:'250px'}}>
+                
+                <Stack spacing={2}>
+                    
+              <Skeleton variant="rounded" width={100} height={10} />
+               <Skeleton variant="rounded" width={100} height={10} />
+                <Skeleton variant="rounded" width={100} height={10} />
+                 <Skeleton variant="rounded" width={100} height={10} />
+            </Stack>
+            <Stack spacing={1}>
+             
+              <Skeleton variant="circular" height={220} width={220} />
+            </Stack>
+            
+            </div>
+            </>
+        ) : (
+            <>
+                <h1 className={styles.title}>Top Sources</h1>
+                <ReactApexChart options={options} series={series} type="radialBar" height={300} />
+            </>
+        )  }
         </div>
     );
 }

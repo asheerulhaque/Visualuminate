@@ -5,15 +5,19 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import Skeleton from '@mui/material/Skeleton';
+import Stack from '@mui/material/Stack';
 
 const Sector = () => {
   const [regions, setRegions] = useState([]);
   const [currReg, setCurrReg] = useState('');
   const [sectorData, setSectorData] = useState({});
   const [chartSeries, setChartSeries] = useState([]);
+  const [loading, setLoading] = useState(true);
   
  
   useEffect(() => {
+    setLoading(true);
     // Fetch regions from the API
     fetch(`${config.API_URL}/api/regions`)
       .then((response) => response.json())
@@ -22,10 +26,11 @@ const Sector = () => {
         const uniqueRegions = Array.from(new Set(data)).filter(Boolean);
         // Update the regions state with the filtered data
         setRegions(uniqueRegions);
-        
+        setLoading(false);
         // Check if currReg is empty and there are regions available
         if (!currReg && uniqueRegions.length > 0) {
           setCurrReg(uniqueRegions[0]); // Set the default value to the first region
+          
         }
       })
       .catch((error) => {
@@ -34,6 +39,7 @@ const Sector = () => {
   }, [currReg]); // This useEffect only runs once on component mount
 
   useEffect(() => {
+    setLoading(true);
     // Fetch sector data when currReg changes
     if (currReg) {
       fetch(`${config.API_URL}/api/sector-data-by-region/${currReg}`)
@@ -49,6 +55,7 @@ const Sector = () => {
 
           // Update the sectorData state with the filtered data
           setSectorData(filteredData);
+          setLoading(false);
         })
         .catch((error) => {
           console.error('Error fetching sector data:', error);
@@ -139,38 +146,47 @@ const Sector = () => {
 
     return (
     <div>
-       <div style={{ display: 'flex', alignItems: 'center', justifyContent:'space-between' }}>
-        <h1 style={{  marginLeft: '20px' ,fontSize:'30px'}}>Sector Reports</h1>
-
-        <div style={{ marginLeft: '20px' ,marginTop:'10px',marginRight:'20px'}}>
-            <FormControl sx={{ minWidth: 220 }} size="small">
-            <InputLabel id="demo-select-small-label" >
-                Change Region
-            </InputLabel>
-            <Select
-                labelId="demo-select-small-label"
-                id="demo-select-small"
-                value={currReg}
-                label="Change Region"
-                onChange={handleRegionChange}
-               
-            >
-                {regions.map((region) => (
-                <MenuItem  key={region} value={region}>
-                    {region}
-                </MenuItem>
-                ))}
-            </Select>
-            </FormControl>
-        </div>
-        </div>
-
-
-      {chartSeries.length > 0 && (
-        <div>
-          <Chart options={chartOptions} series={chartSeries} type="bar" height={430} width={900} />
-        </div>
-      )}
+      {loading ? (
+      <div style={{margin:'20px'}}>
+        <Stack spacing={2}>
+          <Skeleton variant='rounded' width={320} height={40}/>
+          <Skeleton variant='rounded' width={840} height={430}/>
+          </Stack>
+      </div>
+        ) :(<>
+         <div style={{ display: 'flex', alignItems: 'center', justifyContent:'space-between' }}>
+          <h1 style={{  marginLeft: '20px' ,fontSize:'30px'}}>Sector Reports</h1>
+          <div style={{ marginLeft: '20px' ,marginTop:'10px',marginRight:'20px'}}>
+              <FormControl sx={{ minWidth: 220 }} size="small">
+              <InputLabel id="demo-select-small-label" >
+                  Change Region
+              </InputLabel>
+              <Select
+                  labelId="demo-select-small-label"
+                  id="demo-select-small"
+                  value={currReg}
+                  label="Change Region"
+                  onChange={handleRegionChange}
+         
+              >
+                  {regions.map((region) => (
+                  <MenuItem  key={region} value={region}>
+                      {region}
+                  </MenuItem>
+                  ))}
+              </Select>
+              </FormControl>
+          </div>
+          </div>
+         
+         
+               {chartSeries.length > 0 && (
+          <div>
+            <Chart options={chartOptions} series={chartSeries} type="bar" height={430} width={900} />
+          </div>
+               )}
+       </>) }
+       
     </div>
   );
 };
