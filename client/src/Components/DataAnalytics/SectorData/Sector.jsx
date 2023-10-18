@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import config from '../../../config';
 import Chart from 'react-apexcharts';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -10,11 +11,11 @@ const Sector = () => {
   const [currReg, setCurrReg] = useState('');
   const [sectorData, setSectorData] = useState({});
   const [chartSeries, setChartSeries] = useState([]);
-
+  
  
   useEffect(() => {
     // Fetch regions from the API
-    fetch('https://visualuminate.vercel.app/api/regions')
+    fetch(`${config.API_URL}/api/regions`)
       .then((response) => response.json())
       .then((data) => {
         // Remove duplicates and empty values
@@ -35,7 +36,7 @@ const Sector = () => {
   useEffect(() => {
     // Fetch sector data when currReg changes
     if (currReg) {
-      fetch(`https://visualuminate.vercel.app/api/sector-data-by-region/${currReg}`)
+      fetch(`${config.API_URL}/api/sector-data-by-region/${currReg}`)
         .then((response) => response.json())
         .then((data) => {
           // Remove the empty sector from the data object

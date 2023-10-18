@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import config from '../../../config';
 import styles from './country.module.css';
 import usaFlag from '../../../assests/flags/usa.svg';
 import russiaFlag from '../../../assests/flags/russia.svg';
@@ -28,9 +29,10 @@ const CountryData = () => {
   const [countryData, setCountryData] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
 
+
   useEffect(() => {
     // Fetch data from the '/api/country' endpoint
-    fetch('https://visualuminate.vercel.app/api/country')
+    fetch(`${config.API_URL}/api/country`)
       .then((response) => response.json())
       .then((data) => {
         // Filter out entries without an _id and remove empty entries

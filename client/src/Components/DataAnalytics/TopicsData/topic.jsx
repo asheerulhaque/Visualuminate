@@ -1,5 +1,5 @@
-
 import React, { useEffect, useState } from 'react';
+import config from '../../../config';
 import ReactApexChart from 'react-apexcharts';
 import styles from './topic.module.css';
 
@@ -8,7 +8,7 @@ function Topic() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch('https://visualuminate.vercel.app/api/topic-data')
+    fetch(`${config.API_URL}/api/topic-data`)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
