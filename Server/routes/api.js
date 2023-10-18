@@ -31,6 +31,9 @@ router.get('/all-data', async (req, res) => {
         console.error(error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
+    finally {
+        req.databaseClient.close();
+    }
 }
 );
 
@@ -56,6 +59,9 @@ router.get('/sector-data', async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
 
     }
+    finally {
+        req.databaseClient.close();
+    }
 });
 
 // Handle GET request to '/regions'
@@ -68,6 +74,9 @@ router.get('/regions', async (req, res) => {
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Internal Server Error' });
+    }
+    finally {
+        req.databaseClient.close();
     }
 });
 
@@ -87,6 +96,9 @@ router.get('/data-by-region/:region', async (req, res) => {
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Internal Server Error' });
+    }
+    finally {
+        req.databaseClient.close();
     }
 });
 
@@ -121,6 +133,9 @@ router.get('/sector-data-by-region/:region', async (req, res) => {
         console.error(error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
+    finally {
+        req.databaseClient.close();
+    }
 });
 
 
@@ -154,6 +169,9 @@ router.get('/topic-data', async (req, res) => {
         console.error(error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
+    finally {
+        req.databaseClient.close();
+    }
 });
 
 
@@ -176,6 +194,9 @@ router.get('/pestle', async (req, res) => {
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
+    finally {
+        req.databaseClient.close();
+    }
 });
 
 
@@ -197,6 +218,9 @@ router.get('/country', async (req, res) => {
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
+    finally {
+        req.databaseClient.close();
+    }
 });
 
 
@@ -217,6 +241,9 @@ router.get('/source', async (req, res) => {
         res.json(sourceData);
     } catch (err) {
         res.status(500).json({ error: err.message });
+    }
+    finally {
+        req.databaseClient.close();
     }
 });
 
