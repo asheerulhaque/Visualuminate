@@ -11,6 +11,8 @@ import iraqFlag from '../../../assests/flags/iraq.svg';
 import libyaFlag from '../../../assests/flags/libya.svg';
 import indonesiaFlag from '../../../assests/flags/indonesia.svg';
 import japanFlag from '../../../assests/flags/japan.svg';
+import Skeleton from '@mui/material/Skeleton';
+import Stack from '@mui/material/Stack';
 
 const flagImages = {
   'United States of America': usaFlag,
@@ -28,9 +30,11 @@ const flagImages = {
 const CountryData = () => {
   const [countryData, setCountryData] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
+  const [loading, setLoading] = useState(true);
 
 
   useEffect(() => {
+    setLoading(true);
     // Fetch data from the '/api/country' endpoint
     fetch(`${config.API_URL}/api/country`)
       .then((response) => response.json())
@@ -71,12 +75,26 @@ const CountryData = () => {
 
         setTotalCount(total);
         setCountryData(countriesWithPercentage);
+        setLoading(false);
       })
       .catch((error) => console.error('Error fetching data:', error));
+      
   }, []);
 
   return (
     <div className={styles.countryBox}>
+      {loading ? (
+       <Stack spacing={2}>
+      <Skeleton variant="rounded" animation="wave" width={300} height={60} />
+      <Skeleton variant="rounded" animation="wave" width={210} height={45} />
+      {Array(7)
+        .fill(0)
+        .map((item, index) => (
+         <Skeleton key={index} variant="rounded" animation="wave" width={300} height={35} />
+        ))}
+      
+    </Stack>
+    ) : (
       <div className={styles.countrySpacing}>
         <div className={styles.countryHeading}>
           <h2 className={styles.countrytitle}>Top Countries</h2>
@@ -99,6 +117,7 @@ const CountryData = () => {
           </div>
         ))}
       </div>
+    )}
     </div>
   );
 };
